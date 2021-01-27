@@ -1,6 +1,4 @@
-# arduino-cj125
-Arduino CJ125 library for O2 sensor
-O2 5-wire sensor Bosch LSU4.9 wiring should be connected as follow:
+Bosch LSU4.9 5-wire identification:
         IP      red             (czerwony)
         VM      yellow          (żółty)
         HG      white           (biały)
