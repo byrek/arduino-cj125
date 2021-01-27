@@ -1,8 +1,0 @@
-O2 5-wire sensor
-Bosch LSU4.9 wiring 
-	IP	red		(czerwony)
-	VM	yellow		(żółty)
-	HG	white		(biały)
-	B+	grey		(szary)
-	IA	not connected	(nie podłączony)
-	UN	black 		(czarny)
