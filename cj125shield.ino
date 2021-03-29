@@ -1,13 +1,9 @@
-#define wersja  "1.0a"
+#define version  "1.0a"
 
 #include <Arduino.h>
-#include <mcp_can.h>
 
 #include <cj125.h>
 
-/* emulator sondy */
-#define           ANALOG_OUTPUT_PIN                   3
-#define           UB_ANALOG_INPUT_PIN                 A2
 
 /* CJ125 */
 
@@ -36,7 +32,7 @@ float get_bat(void)
 void O2_health(void)
 {
   uint16_t status;
-  // HEALTH CHECK SENSORA O2
+  // HEALTH CHECK
   status=cj.check_stat();
   
   while (status != CJ125_OK)
@@ -76,7 +72,7 @@ void setup() {
 
   Serial.begin(9600);
   while (!Serial);   // time to get serial running
-  Serial.print("O2 Shield version "); Serial.println(wersja);
+  Serial.print("O2 Shield version "); Serial.println(version);
   
   //O2 Init
   Serial.println("Looking for O2...");
@@ -103,21 +99,21 @@ void loop() {
     test=cj.check_stat();
     if (test!=CJ125_OK)
     {
-      //coś się zepsuło z układem pomiarowym
+      //restoring from fault, recalibrating
       cj_status=test;
       analogWrite(CJ_HEATER,0);
       O2_health(); O2_calibrate();
     }
     if (cj_status!=CJ125_OK && cj.check_stat()==CJ125_OK)
     {
-      //rozruch po awarii CJ125 - restart procedury kalibracyjnej
+      //restoring from fault - calibration restart
       cj.calibrate(get_bat());
       cj_status=CJ125_OK;
     }
     
     if (cj_status==CJ125_OK && cj.check_stat()==CJ125_OK)
     {
-      //normalna praca
+      //normal running
       cj.run();
 
       oxy=cj.get_oxygen();
