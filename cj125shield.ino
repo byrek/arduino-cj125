@@ -116,9 +116,7 @@ void loop() {
     {
       //normal operation
       cj.run();
-
       oxy=cj.get_oxygen();
-  Serial.print("ADC:"); Serial.println(analogRead(CJ_UA));
       Serial.print("AFR: "); Serial.println(oxy);
     }
   delay(500);
