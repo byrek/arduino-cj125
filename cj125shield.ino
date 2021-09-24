@@ -1,5 +1,4 @@
 #include <cj125.h>
-#include <table.h>
 
 #define version  "1.0b"
 
