@@ -1,9 +1,6 @@
 #include <cj125.h>
-
 #define version  "1.0b"
-
 #include <Arduino.h>
-#include <cj125.h>
 
 /* CJ125 */
 
