@@ -2,9 +2,8 @@
 - SPI
 - PID_v1
 
-#Installation:
+# Installation:
 Create a CJ125 directory under Your Arduino libraries directory.
-
 Drop the content in there & have fun!
 
 # Bosch LSU4.9 5-wire identification:
