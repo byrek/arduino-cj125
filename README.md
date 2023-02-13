@@ -25,10 +25,10 @@ Drop the content in there & have fun!
 |VIN|When JP1 is closed, the arduino is supplied with +/- BAT terminals|
 |Analog in 0|CJ125 UA|
 |Analog in 1|CJ125 UR|
-|Analog in 3|Battery voltage monitoring|
+|Analog in 2|Battery voltage monitoring|
 |4|Analog output option (might be used to deliver O2 narrow band signal, not implemented in code)|
-|6|PWM output for LSU heater|
-|19|SPI CJ125 Chip select line (NSS)|
+|5|PWM output for LSU heater|
+|10|SPI CJ125 Chip select line (NSS)|
 |11|SPI MOSI|
 |12|SPI MISO|
 |13|SPI CLK|
