@@ -68,7 +68,7 @@ int CJ125::calibrate(float UBAT)
 // - store UR value as a PWM reference point, quit CJ125 calibration
 // - change over to PWM heater control mode
 
-	COM_SPI(INIT_REG1_WR||0x9D);	//entering calibration mode
+	COM_SPI(INIT_REG1_WR|0x9D);	//entering calibration mode
 	if (UBAT<8.5) return -1;	// UBAT is less than 8.5V, hardware problem
 	//two volts are equal to  136 from ADC but for convenience, lets stick to the float calculation :)
   	float pwm_factor=(2/UBAT)*255;
@@ -84,7 +84,7 @@ int CJ125::calibrate(float UBAT)
 	}
 	analogWrite(this->HTR_PIN,0);			//end of pre-heating, power off the heater
 	this->Setpoint=analogRead(this->UR_PIN);
-	COM_SPI(INIT_REG1_WR||0x89);	//quit the calibration mode
+	COM_SPI(INIT_REG1_WR|0x89);	//quit the calibration mode
 	return 0;
 }
 
